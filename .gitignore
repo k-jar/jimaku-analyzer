@@ -1,0 +1,17 @@
+# Python
+backend/venv
+backend/__pycache__/
+backend/data
+backend/logs
+backend/.env
+backend/ml
+backend/scripts/pipeline/.model_cache
+backend/.coverage
+backend/htmlcov
+*.pyc
+
+# Node
+frontend/node_modules/
+frontend/.next/
+.env
+.DS_Store
