@@ -1,13 +1,21 @@
 import os
 from typing import Generator
 from sqlmodel import SQLModel, create_engine, Session
+from dotenv import load_dotenv
 
-# Default to localhost if env var is missing
-DATABASE_URL = os.environ.get(
-    "DATABASE_URL", "postgresql://user:password@localhost:5432/jlpt_db"
+load_dotenv()
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL environment variable is not set.")
+
+# pool_pre_ping: checks if the connection is alive before using it
+engine = create_engine(
+    DATABASE_URL, 
+    pool_pre_ping=True,
+    echo=False
 )
-
-engine = create_engine(DATABASE_URL)
 
 
 def create_db_and_tables():

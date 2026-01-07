@@ -3,13 +3,14 @@ import os
 import sys
 
 # Add parent directory to path to allow importing from backend modules
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, PROJECT_ROOT)
 
 from sqlmodel import Session, select
 from app.core.database import engine, create_db_and_tables
 from app.models.models import Vocab
 
-DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "vocab.json")
+DATA_FILE = os.path.join(PROJECT_ROOT, "data", "vocab.json")
 
 
 def seed_data():

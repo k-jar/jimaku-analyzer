@@ -28,8 +28,8 @@ app = FastAPI(
 )
 
 origins = [
-    "http://localhost:3000",  # Next.js Frontend
-    "https://*.vercel.app",
+    "http://localhost:3000",
+    "https://jimaku-analyzer.vercel.app",
 ]
 
 app.add_middleware(
