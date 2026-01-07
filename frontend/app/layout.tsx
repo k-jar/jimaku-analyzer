@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Japanese Text Analyzer",
-  description: "Analyze Japanese text difficulty",
+  title: "Jimaku Analyzer",
+  description: "Browse Anime statistics and vocabulary derived from subtitle files.",
 };
 
 export default function RootLayout({

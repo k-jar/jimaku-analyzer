@@ -82,10 +82,9 @@ function NavbarContent() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-2 group">
-              <span className="text-xl">🇯🇵</span>
+            <Link href="/anime" className="flex items-center gap-2 group">
               <span className="font-bold text-xl tracking-tight text-gray-800 group-hover:text-blue-600 transition">
-                Analyzer
+                Jimaku Analyzer
               </span>
             </Link>
           </div>

@@ -50,7 +50,7 @@ interface AnalysisStats {
 }
 
 /**
- * The main Text Analyzer page.
+ * The Text Analyzer page.
  * Allows users to input Japanese text or upload an image (OCR) to analyze vocabulary difficulty.
  */
 export default function Home() {
