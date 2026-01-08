@@ -126,6 +126,11 @@ def main():
         print("Please create the directory and add subtitle files.")
         return
 
+    if not os.path.exists(os.path.join(DATA_DIR, "vocab.json")):
+        print(f"No vocab.json found at: {DATA_DIR}")
+        print("Please run the vocabulary fetcher script first.")
+        return
+
     folders = sorted(os.listdir(RAW_DIR))
 
     if args.all:
