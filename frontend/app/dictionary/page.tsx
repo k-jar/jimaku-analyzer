@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo } from "react";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
-import VocabTable, { VocabTableSkeleton } from "../components/VocabTable";
+import { VocabTable, VocabTableSkeleton } from "@/components/vocab-table";
 import {
   generateAnkiCSV,
   generatePlainText,
@@ -72,7 +72,7 @@ export default function DictionaryPage() {
         `${
           process.env.NEXT_PUBLIC_API_URL
         }/words/dictionary?${query.toString()}`,
-        { headers }
+        { headers },
       );
       if (!res.ok) throw new Error("Failed to load dictionary");
       const data = await res.json();
@@ -162,7 +162,7 @@ export default function DictionaryPage() {
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/words/dictionary?${query.toString()}`,
-      { headers }
+      { headers },
     );
     if (!res.ok) throw new Error("Failed to fetch all words");
     const data = await res.json();
@@ -193,7 +193,7 @@ export default function DictionaryPage() {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ words: wordsToSave }),
-        }
+        },
       );
 
       if (res.ok) {
@@ -228,14 +228,14 @@ export default function DictionaryPage() {
         downloadFile(
           content,
           "dictionary_export.csv",
-          "text/csv;charset=utf-8;"
+          "text/csv;charset=utf-8;",
         );
       } else {
         const content = generatePlainText(exportData);
         downloadFile(
           content,
           "dictionary_export.txt",
-          "text/plain;charset=utf-8;"
+          "text/plain;charset=utf-8;",
         );
       }
       toast.success("Export complete", { id: toastId });
@@ -269,6 +269,8 @@ export default function DictionaryPage() {
           onPrepareBulkSave={handlePrepareBulkSave}
           onExecuteBulkSave={handleExecuteBulkSave}
           onBulkExport={handleBulkExport}
+          initialSortBy="freq"
+          initialSortOrder="asc"
         />
       </div>
     </main>

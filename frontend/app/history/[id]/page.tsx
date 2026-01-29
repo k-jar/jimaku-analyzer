@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import StatsPanel from "@/app/components/StatsPanel"; // Reusing your existing component
+import StatsPanel from "@/components/StatsPanel"; // Reusing your existing component
 
 /**
  * Represents the full details of a past analysis session.
@@ -41,7 +41,7 @@ export default function HistoryDetailPage() {
           `${process.env.NEXT_PUBLIC_API_URL}/history/${id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
-          }
+          },
         );
 
         if (!res.ok) {

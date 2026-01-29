@@ -5,10 +5,10 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-import VocabTable, { VocabTableSkeleton } from "@/app/components/VocabTable";
-import StatsPanel, { StatsPanelSkeleton } from "../../../components/StatsPanel";
-import DifficultyBadge from "@/app/components/DifficultyBadge";
-import ExclusionTooltip from "@/app/components/ExclusionTooltip";
+import { VocabTable, VocabTableSkeleton } from "@/components/vocab-table";
+import StatsPanel, { StatsPanelSkeleton } from "@/components/StatsPanel";
+import DifficultyBadge from "@/components/DifficultyBadge";
+import ExclusionTooltip from "@/components/ExclusionTooltip";
 
 /**
  * Represents a vocabulary item specific to an episode.
@@ -67,7 +67,7 @@ export default function EpisodeAnalysis() {
         }
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/anime/episode/${id}/analysis`,
-          { headers }
+          { headers },
         );
         if (!res.ok) throw new Error("Failed to load");
         const json = await res.json();
@@ -219,15 +219,15 @@ export default function EpisodeAnalysis() {
                       Math.abs(data.stats.cpm - AVG_CPM) < 30
                         ? "text-gray-400"
                         : data.stats.cpm > AVG_CPM
-                        ? "text-orange-500"
-                        : "text-blue-500"
+                          ? "text-orange-500"
+                          : "text-blue-500"
                     }`}
                   >
                     {Math.abs(data.stats.cpm - AVG_CPM) < 30
                       ? "Normal speed"
                       : data.stats.cpm > AVG_CPM
-                      ? "Faster than average"
-                      : "Slower than average"}
+                        ? "Faster than average"
+                        : "Slower than average"}
                   </span>
                 </div>
               </>
@@ -247,6 +247,8 @@ export default function EpisodeAnalysis() {
         onSave={saveWord}
         contextLabel={`Episode ${data.episode_number}`}
         showCount={true}
+        initialSortBy="count"
+        initialSortOrder="desc"
       />
     </main>
   );

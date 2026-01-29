@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Cookies from "js-cookie";
 import Link from "next/link";
-import StatsPanel, { StatsPanelSkeleton } from "../../components/StatsPanel";
-import DifficultyBadge from "@/app/components/DifficultyBadge";
-import ConfirmationDialog from "@/app/components/ConfirmationDialog";
+import StatsPanel, { StatsPanelSkeleton } from "@/components/StatsPanel";
+import DifficultyBadge from "@/components/DifficultyBadge";
+import ConfirmationDialog from "@/components/ConfirmationDialog";
 import toast from "react-hot-toast";
 
 /**
@@ -108,7 +108,7 @@ export default function SeriesDetail() {
 
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/anime/${id}`,
-          { headers }
+          { headers },
         );
 
         if (!res.ok) throw new Error("Not found");
@@ -120,7 +120,7 @@ export default function SeriesDetail() {
             `${process.env.NEXT_PUBLIC_API_URL}/anime/${id}/status`,
             {
               headers: { Authorization: `Bearer ${token}` },
-            }
+            },
           );
           if (statusRes.ok) {
             const statusData = await statusRes.json();
@@ -207,7 +207,7 @@ export default function SeriesDetail() {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ status: newStatus }),
-        }
+        },
       );
       const result = await res.json();
       setUserStatus(result.status);
@@ -424,15 +424,15 @@ export default function SeriesDetail() {
                     Math.abs(data.series.cpm - AVG_CPM) < 30
                       ? "text-gray-400"
                       : data.series.cpm > AVG_CPM
-                      ? "text-orange-500"
-                      : "text-blue-500"
+                        ? "text-orange-500"
+                        : "text-blue-500"
                   }`}
                 >
                   {Math.abs(data.series.cpm - AVG_CPM) < 30
                     ? "Normal speed"
                     : data.series.cpm > AVG_CPM
-                    ? "Faster than average"
-                    : "Slower than average"}
+                      ? "Faster than average"
+                      : "Slower than average"}
                 </span>
               )}
             </div>

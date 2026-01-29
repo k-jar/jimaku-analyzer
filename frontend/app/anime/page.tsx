@@ -4,7 +4,7 @@ import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter, useSearchParams } from "next/navigation";
-import DifficultyBadge from "../components/DifficultyBadge";
+import DifficultyBadge from "@/components/DifficultyBadge";
 
 /**
  * Custom hook to debounce a value.
@@ -91,7 +91,7 @@ function AnimeGalleryContent() {
 
   // States for filtering
   const [viewMode, setViewMode] = useState<"all" | "saved">(
-    searchParams.get("view") === "saved" ? "saved" : "all"
+    searchParams.get("view") === "saved" ? "saved" : "all",
   );
   const [statusFilter, setStatusFilter] = useState("all");
   const [excludeSaved, setExcludeSaved] = useState(false);

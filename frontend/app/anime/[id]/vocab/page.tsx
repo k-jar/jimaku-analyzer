@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-import VocabTable, { VocabTableSkeleton } from "../../../components/VocabTable";
+import { VocabTable, VocabTableSkeleton } from "@/components/vocab-table";
 
 /**
  * Represents a vocabulary item specific to a series.
@@ -45,7 +45,7 @@ export default function SeriesVocab() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/anime/${id}/analysis`
+          `${process.env.NEXT_PUBLIC_API_URL}/anime/${id}/analysis`,
         );
         if (!res.ok) throw new Error("Failed to load");
         const json = await res.json();
@@ -146,6 +146,8 @@ export default function SeriesVocab() {
         onSave={saveWord}
         contextLabel={`Series ${data.series_id}`}
         showCount={true}
+        initialSortBy="count"
+        initialSortOrder="desc"
       />
     </main>
   );

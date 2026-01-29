@@ -4,8 +4,8 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import toast from "react-hot-toast";
-import StatsPanel from "./components/StatsPanel";
-import VocabTable from "./components/VocabTable";
+import StatsPanel from "@/components/StatsPanel";
+import { VocabTable } from "@/components/vocab-table";
 
 /**
  * Represents a single token (word) analyzed from the text.
@@ -128,7 +128,7 @@ export default function Home() {
           method: "POST",
           headers: headers,
           body: JSON.stringify({ text: inputText }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -396,6 +396,8 @@ export default function Home() {
             tokens={results}
             onSave={saveWord}
             contextLabel="Text Analysis"
+            initialSortBy="count"
+            initialSortOrder="desc"
           />
         </div>
       ) : (

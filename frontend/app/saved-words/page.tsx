@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import ConfirmationDialog from "../components/ConfirmationDialog";
-import VocabTable, { VocabTableSkeleton } from "../components/VocabTable";
+import ConfirmationDialog from "@/components/ConfirmationDialog";
+import { VocabTable, VocabTableSkeleton } from "@/components/vocab-table";
 
 /**
  * Represents a word saved in the user's vocabulary list.
@@ -95,7 +95,7 @@ export default function SavedWords() {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ word: wordToDelete }),
-        }
+        },
       );
 
       if (res.ok) {
@@ -130,7 +130,7 @@ export default function SavedWords() {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ words: wordsToDelete }),
-        }
+        },
       );
 
       if (res.ok) {
@@ -191,6 +191,8 @@ export default function SavedWords() {
           onDelete={initiateDelete}
           onBulkDelete={handleBulkDelete}
           showDate={true}
+          initialSortBy="date"
+          initialSortOrder="desc"
         />
       )}
 

@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import ConfirmationDialog from "../components/ConfirmationDialog";
+import ConfirmationDialog from "@/components/ConfirmationDialog";
 
 /**
  * Represents a summary of a past analysis session.
@@ -44,7 +44,7 @@ export default function HistoryPage() {
           `${process.env.NEXT_PUBLIC_API_URL}/history/me`,
           {
             headers: { Authorization: `Bearer ${token}` },
-          }
+          },
         );
 
         if (!res.ok) {
@@ -88,7 +88,7 @@ export default function HistoryPage() {
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
-        }
+        },
       );
 
       if (res.ok) {
