@@ -57,7 +57,7 @@ const DIFFICULTY_RANGES = [
 function AnimeSkeleton() {
   return (
     <div className="block bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-      <div className="aspect-[2/3] bg-gray-200 animate-pulse" />
+      <div className="aspect-2/3 bg-gray-200 animate-pulse" />
       <div className="p-4 space-y-3">
         <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4" />
         <div className="h-3 bg-gray-200 rounded animate-pulse w-1/2" />
@@ -314,7 +314,7 @@ function AnimeGalleryContent() {
             )}
             <button
               onClick={() => setIsSortOpen(!isSortOpen)}
-              className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white hover:bg-gray-50 flex items-center gap-2 min-w-[160px] justify-between shadow-sm"
+              className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white hover:bg-gray-50 flex items-center gap-2 min-w-40 justify-between shadow-sm"
             >
               <span className="truncate">
                 {sort === "status" && "Sort by Status"}
@@ -406,7 +406,7 @@ function AnimeGalleryContent() {
               href={`/anime/${anime.id}`}
               className="block group bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition relative hover:z-10"
             >
-              <div className="aspect-[2/3] bg-gray-100 relative overflow-hidden rounded-t-xl">
+              <div className="aspect-2/3 bg-gray-100 relative overflow-hidden rounded-t-xl">
                 {getStatusBadge(anime.user_status)}
                 {anime.thumbnail_url ? (
                   <img
@@ -421,7 +421,7 @@ function AnimeGalleryContent() {
                 )}
               </div>
 
-              <div className="p-4 flex flex-col flex-grow">
+              <div className="p-4 flex flex-col grow">
                 <h3 className="font-bold text-base text-gray-900 group-hover:text-blue-600 transition line-clamp-2 mb-1">
                   {anime.title_jp}
                 </h3>

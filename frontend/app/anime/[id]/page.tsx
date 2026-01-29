@@ -143,13 +143,13 @@ export default function SeriesDetail() {
       <main className="max-w-6xl mx-auto px-4 py-10 animate-pulse">
         <div className="flex flex-col md:flex-row gap-8 mb-12">
           {/* Left: Image */}
-          <div className="w-48 mx-auto md:mx-0 md:w-1/5 lg:w-1/6 flex-shrink-0">
-            <div className="aspect-[2/3] bg-gray-200 rounded-xl mb-4"></div>
+          <div className="w-48 mx-auto md:mx-0 md:w-1/5 lg:w-1/6 shrink-0">
+            <div className="aspect-2/3 bg-gray-200 rounded-xl mb-4"></div>
             <div className="h-10 bg-gray-200 rounded-lg"></div>
           </div>
 
           {/* Right: Info */}
-          <div className="flex-grow">
+          <div className="grow">
             <div className="h-4 bg-gray-200 rounded w-24 mb-4"></div>
             <div className="h-10 bg-gray-200 rounded w-3/4 mb-2"></div>
             <div className="h-6 bg-gray-200 rounded w-1/2 mb-4"></div>
@@ -254,8 +254,8 @@ export default function SeriesDetail() {
       />
       <div className="flex flex-col md:flex-row gap-8 mb-12">
         {/* Left: Image */}
-        <div className="w-48 mx-auto md:mx-0 md:w-1/5 lg:w-1/6 flex-shrink-0">
-          <div className="aspect-[2/3] bg-gray-200 rounded-xl overflow-hidden shadow-lg">
+        <div className="w-48 mx-auto md:mx-0 md:w-1/5 lg:w-1/6 shrink-0">
+          <div className="aspect-2/3 bg-gray-200 rounded-xl overflow-hidden shadow-lg">
             {data.series.thumbnail_url ? (
               <img
                 src={data.series.thumbnail_url}
@@ -308,7 +308,7 @@ export default function SeriesDetail() {
         </div>
 
         {/* Right: Info & Stats */}
-        <div className="flex-grow">
+        <div className="grow">
           <Link
             href="/anime"
             className="text-sm text-gray-500 hover:text-gray-800"

@@ -72,7 +72,7 @@ export default function StatsPanel({ stats, userStats }: StatsPanelProps) {
 
   // Prepare POS (Part of Speech) Data for Pie Chart
   const posData = Object.entries(stats.pos_distribution).map(
-    ([key, value]) => ({ name: key, value: value })
+    ([key, value]) => ({ name: key, value: value }),
   );
 
   // Prepare General Vocabulary Thresholds for Table
@@ -149,7 +149,7 @@ export default function StatsPanel({ stats, userStats }: StatsPanelProps) {
       <div className="lg:col-span-2 bg-white p-6 rounded-xl shadow-md border border-gray-100 flex flex-wrap justify-around text-center items-center gap-y-4">
         {/* Series 95% */}
         <div className="relative group cursor-help">
-          <div className="text-xs text-gray-500 font-bold uppercase tracking-wide text-blue-800">
+          <div className="text-xs text-gray-500 font-bold uppercase tracking-wide">
             Series 95%
           </div>
           <div className="text-4xl font-bold text-blue-600 mt-1">
@@ -162,7 +162,7 @@ export default function StatsPanel({ stats, userStats }: StatsPanelProps) {
         <div className="hidden md:block w-px h-12 bg-gray-200"></div>
         {/* General 95% */}
         <div>
-          <div className="text-xs text-gray-500 font-bold uppercase tracking-wide text-indigo-800">
+          <div className="text-xs text-gray-500 font-bold uppercase tracking-wide">
             General 95%
           </div>
           <div className="text-4xl font-bold text-indigo-600 mt-1">

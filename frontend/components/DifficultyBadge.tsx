@@ -88,7 +88,7 @@ export default function DifficultyBadge({
           className={`${
             isSmall ? "text-[10px]" : "text-xs"
           } font-bold leading-tight ${
-            isSmall ? "max-w-[60px]" : "max-w-[80px]"
+            isSmall ? "max-w-[60px]" : "max-w-20"
           }`}
         >
           {label}

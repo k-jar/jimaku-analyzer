@@ -36,7 +36,7 @@ export default function RootLayout({
         <Toaster position="bottom-right" />
 
         {/* Main Content (Grows to fill space) */}
-        <main className="flex-grow">{children}</main>
+        <main className="grow">{children}</main>
 
         {/* Persistent Footer */}
         <Footer />

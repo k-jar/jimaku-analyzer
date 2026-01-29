@@ -134,7 +134,7 @@ export default function HistoryPage() {
               key={item.id}
               className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col sm:flex-row justify-between gap-4"
             >
-              <div className="flex-grow">
+              <div className="grow">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-1 rounded">
                     {new Date(item.created_at).toLocaleDateString()}
